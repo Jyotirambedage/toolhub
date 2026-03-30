@@ -1,0 +1,26 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://your-site.vercel.app/</loc>
+  </url>
+  <url>
+    <loc>https://your-site.vercel.app/resize.html</loc>
+  </url>
+  <url>
+    <loc>https://your-site.vercel.app/image.html</loc>
+  </url>
+  <url>
+    <loc>https://your-site.vercel.app/jpg-to-png.html</loc>
+  </url>
+  <url>
+    <loc>https://your-site.vercel.app/png-to-jpg.html</loc>
+  </url>
+  <url>
+    <loc>https://your-site.vercel.app/image-to-pdf.html</loc>
+  </url>
+  <url>
+    <loc>https://your-site.vercel.app/pdf-to-word.html</loc>
+  </url>
+  <url>
+    <loc>https://your-site.vercel.app/qr.html</loc>
+  </url>
+</urlset>
