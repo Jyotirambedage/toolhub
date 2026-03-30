@@ -3,4 +3,28 @@
   <url>
     <loc>https://toolhub-bxhi.vercel.app/</loc>
   </url>
+  <url>
+    <loc>https://toolhub-bxhi.vercel.app/index.html</loc>
+  </url>
+  <url>
+    <loc>https://toolhub-bxhi.vercel.app/resize.html</loc>
+  </url>
+  <url>
+    <loc>https://toolhub-bxhi.vercel.app/image.html</loc>
+  </url>
+  <url>
+    <loc>https://toolhub-bxhi.vercel.app/jpg-to-png.html</loc>
+  </url>
+  <url>
+    <loc>https://toolhub-bxhi.vercel.app/png-to-jpg.html</loc>
+  </url>
+  <url>
+    <loc>https://toolhub-bxhi.vercel.app/image-to-pdf.html</loc>
+  </url>
+  <url>
+    <loc>https://toolhub-bxhi.vercel.app/pdf-to-word.html</loc>
+  </url>
+  <url>
+    <loc>https://toolhub-bxhi.vercel.app/qr.html</loc>
+  </url>
 </urlset>
