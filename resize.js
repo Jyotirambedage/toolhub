@@ -1,42 +1,28 @@
 function resize() {
   let file = document.getElementById("upload").files[0];
-
-  if (!file) {
-    alert("Upload image first");
-    return;
-  }
-
-  let width = document.getElementById("width").value;
-  let height = document.getElementById("height").value;
+  let w = document.getElementById("w").value;
+  let h = document.getElementById("h").value;
 
   let reader = new FileReader();
 
-  reader.onload = function (e) {
+  reader.onload = function(e) {
     let img = new Image();
     img.src = e.target.result;
 
-    img.onload = function () {
+    img.onload = function() {
       let canvas = document.getElementById("canvas");
       let ctx = canvas.getContext("2d");
 
-      canvas.width = width || img.width;
-      canvas.height = height || img.height;
+      canvas.width = w;
+      canvas.height = h;
 
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, w, h);
 
-      canvas.toBlob(
-        function (blob) {
-          let url = URL.createObjectURL(blob);
-
-          let btn = document.getElementById("downloadBtn");
-          btn.href = url;
-          btn.download = "resized.jpg";
-          btn.style.display = "inline";
-        },
-        "image/jpeg",
-        0.9
-      );
-    };
+      let link = document.getElementById("downloadBtn");
+      link.href = canvas.toDataURL();
+      link.download = "resized.png";
+      link.style.display = "inline";
+    }
   };
 
   reader.readAsDataURL(file);
