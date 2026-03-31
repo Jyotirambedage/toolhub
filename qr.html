@@ -2,37 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Generate QR codes online.">
+<meta name="keywords" content="qr code generator, create qr, qr code">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Generate QR codes online for URLs, text, or contact info.">
-<meta name="keywords" content="qr code generator, online qr code, qr code creator">
-<title>QR Code Generator - ToolHub</title>
+<title>QR Generator</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h1>QR Code Generator</h1>
-    <p>Create QR codes instantly for links, text, phone numbers, and more.</p>
-</header>
-
-<div class="container upload-section">
-    <input type="text" id="qrText" placeholder="Enter URL or text">
-    <button onclick="generateQR()">Generate QR Code</button>
-    <div id="qrOutput"></div>
+<header>QR Code Generator</header>
+<div class="upload-section">
+    <input type="text" id="text-input" placeholder="Enter URL or text">
+    <button id="generate-btn">Generate QR</button>
+    <div class="preview" id="qr-preview"></div>
 </div>
-
-<a href="index.html" class="btn">Back to Home</a>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script>
-function generateQR() {
-    const qrDiv = document.getElementById('qrOutput');
-    qrDiv.innerHTML = '';
-    const text = document.getElementById('qrText').value;
-    if(!text) { alert('Enter text or URL'); return; }
-    new QRCode(qrDiv, { text:text, width:200, height:200 });
-}
-</script>
-
+<script src="js/qr-generator.js"></script>
 </body>
 </html>
