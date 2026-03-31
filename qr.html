@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>QR Code Generator - ToolHub</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate QR codes online for URLs, text, or contact info.">
+<meta name="keywords" content="qr code generator, online qr code, qr code creator">
+<title>QR Code Generator - ToolHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  <body>
-    <header>
-      <h1>🔳 QR Code Generator</h1>
-      <p>Create QR codes instantly</p>
-    </header>
+<header>
+    <h1>QR Code Generator</h1>
+    <p>Create QR codes instantly for links, text, phone numbers, and more.</p>
+</header>
 
-    <div style="text-align: center">
-      <a href="index.html" class="back-btn">⬅ Back</a>
-    </div>
+<div class="container upload-section">
+    <input type="text" id="qrText" placeholder="Enter URL or text">
+    <button onclick="generateQR()">Generate QR Code</button>
+    <div id="qrOutput"></div>
+</div>
 
-    <div class="container">
-      <input
-        type="text"
-        id="text"
-        placeholder="Enter text or URL"
-      /><br /><br />
+<a href="index.html" class="btn">Back to Home</a>
 
-      <button onclick="generate()">Generate QR</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+function generateQR() {
+    const qrDiv = document.getElementById('qrOutput');
+    qrDiv.innerHTML = '';
+    const text = document.getElementById('qrText').value;
+    if(!text) { alert('Enter text or URL'); return; }
+    new QRCode(qrDiv, { text:text, width:200, height:200 });
+}
+</script>
 
-      <br /><br />
-
-      <img id="qrImg" style="display: none" /><br /><br />
-    </div>
-
-    <footer>
-      <p>Generate QR for free</p>
-    </footer>
-
-    <script src="qr.js"></script>
-  </body>
+</body>
 </html>
