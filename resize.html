@@ -2,64 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Resize images online with width & height inputs.">
+<meta name="keywords" content="image resizer, resize png, resize jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Resize images online by width and height.">
-<meta name="keywords" content="image resizer, resize png, resize jpg, online image resize">
-<title>Image Resizer - ToolHub</title>
+<title>Image Resizer</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h1>Image Resizer</h1>
-    <p>Resize your images to exact width and height in px or percentage.</p>
-</header>
-
-<div class="container upload-section">
-    <input type="file" id="uploadResize" accept="image/*">
-    <input type="number" id="width" placeholder="Width (px)" min="1">
-    <input type="number" id="height" placeholder="Height (px)" min="1">
-    <button onclick="resizeImage()">Resize & Download</button>
-    <img id="previewResize" src="#" alt="" style="display:none;">
+<header>Image Resizer</header>
+<div class="upload-section">
+    <div class="drag-drop" id="drag-drop">Drag & Drop or Click to Upload</div>
+    <input type="file" id="file-input" accept="image/*">
+    <label>Width: <input type="number" id="width" placeholder="px"></label>
+    <label>Height: <input type="number" id="height" placeholder="px"></label>
+    <div class="preview"><img id="preview-img" style="display:none;"></div>
+    <button id="resize-btn">Resize Image</button>
+    <div class="result-box" id="result-box"></div>
 </div>
-
-<a href="index.html" class="btn">Back to Home</a>
-
-<script>
-const uploadResize = document.getElementById('uploadResize');
-const previewResize = document.getElementById('previewResize');
-
-uploadResize.addEventListener('change', () => {
-    const file = uploadResize.files[0];
-    if(file) {
-        previewResize.src = URL.createObjectURL(file);
-        previewResize.style.display = 'block';
-    }
-});
-
-function resizeImage() {
-    const file = uploadResize.files[0];
-    const w = document.getElementById('width').value;
-    const h = document.getElementById('height').value;
-    if(!file || !w || !h) { alert('Upload image and enter dimensions'); return; }
-    const img = new Image();
-    img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = parseInt(w);
-        canvas.height = parseInt(h);
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img,0,0,canvas.width,canvas.height);
-        canvas.toBlob((blob) => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'resized_' + file.name;
-            a.click();
-        }, 'image/jpeg', 0.95);
-    };
-    img.src = URL.createObjectURL(file);
-}
-</script>
-
+<script src="js/resizer.js"></script>
 </body>
 </html>
