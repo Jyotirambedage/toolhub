@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Image Compressor</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+<head>
+<title>Compress Image Online Free | ToolHub</title>
+<meta name="description" content="Compress image online free without losing quality.">
+<link rel="stylesheet" href="style.css">
+</head>
 
-  <body>
-    <header>
-      <h1>🖼 Image Compressor</h1>
-    </header>
+<body>
 
-    <a href="index.html" class="back-btn">⬅ Back</a>
+<a href="index.html">⬅ Back</a>
 
-    <div class="container">
-      <div id="tool"></div>
-    </div>
+<h2>Compress Image</h2>
 
-    <script src="index.js"></script>
-  </body>
+<div class="container">
+<input type="file" id="upload"><br><br>
+
+<label>Quality</label><br>
+<input type="range" id="q" min="0.1" max="1" step="0.1" value="0.7"><br><br>
+
+<button onclick="compress()">Compress</button>
+
+<p id="sizes"></p>
+
+<canvas id="canvas"></canvas><br>
+
+<a id="downloadBtn" style="display:none;">
+<button>Download</button>
+</a>
+</div>
+
+<section class="seo">
+<h2>Compress Image Online Free</h2>
+<p>Reduce image size without losing quality. Resize to 100KB, 200KB instantly.</p>
+</section>
+
+<script src="image.js"></script>
+
+</body>
 </html>
