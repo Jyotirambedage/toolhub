@@ -2,62 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Convert PNG images to JPG online.">
+<meta name="keywords" content="png to jpg, convert png, image converter">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Convert PNG images to JPG format online for free.">
-<meta name="keywords" content="png to jpg, convert png to jpg, online image converter">
-<title>PNG to JPG - ToolHub</title>
+<title>PNG to JPG</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h1>PNG to JPG Converter</h1>
-    <p>Convert PNG images to JPG format online quickly and for free.</p>
-</header>
-
-<div class="container upload-section">
-    <input type="file" id="uploadPNG" accept="image/png">
-    <button onclick="convertToJPG()">Convert & Download</button>
-    <img id="previewPNG" src="#" alt="" style="display:none;">
+<header>PNG → JPG Converter</header>
+<div class="upload-section">
+    <div class="drag-drop" id="drag-drop">Drag & Drop PNG or Click</div>
+    <input type="file" id="file-input" accept="image/png">
+    <div class="preview"><img id="preview-img" style="display:none;"></div>
+    <button id="convert-btn">Convert to JPG</button>
 </div>
-
-<a href="index.html" class="btn">Back to Home</a>
-
-<script>
-const uploadPNG = document.getElementById('uploadPNG');
-const previewPNG = document.getElementById('previewPNG');
-
-uploadPNG.addEventListener('change', () => {
-    const file = uploadPNG.files[0];
-    if(file) {
-        previewPNG.src = URL.createObjectURL(file);
-        previewPNG.style.display = 'block';
-    }
-});
-
-function convertToJPG() {
-    const file = uploadPNG.files[0];
-    if(!file) { alert('Please upload PNG image'); return; }
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const img = new Image();
-    img.onload = () => {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.fillStyle = "#fff"; 
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-        ctx.drawImage(img,0,0);
-        canvas.toBlob((blob) => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = file.name.replace('.png','.jpg');
-            a.click();
-        }, 'image/jpeg', 0.95);
-    };
-    img.src = URL.createObjectURL(file);
-}
-</script>
-
+<script src="js/png-to-jpg.js"></script>
 </body>
 </html>
