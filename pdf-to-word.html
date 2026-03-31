@@ -1,43 +1,33 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>PDF to Word Converter - ToolHub</title>
-    <link rel="stylesheet" href="styles.css" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert PDF to editable Word documents online for free.">
+<meta name="keywords" content="pdf to word, convert pdf to doc, online pdf converter">
+<title>PDF to Word - ToolHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <!-- PDF.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-  </head>
+<header>
+    <h1>PDF to Word Converter</h1>
+    <p>Upload your PDF and convert it into an editable Word document quickly.</p>
+</header>
 
-  <body>
-    <header>
-      <h1>📄 PDF to Word Converter</h1>
-      <p>Extract text from PDF files easily</p>
-    </header>
+<div class="container upload-section">
+    <input type="file" id="uploadPDF" accept="application/pdf">
+    <button onclick="convertPDF()">Convert & Download</button>
+</div>
 
-    <div style="text-align: center">
-      <a href="index.html" class="back-btn">⬅ Back to Home</a>
-    </div>
+<a href="index.html" class="btn">Back to Home</a>
 
-    <div class="container">
-      <p><b>Free PDF to Word Tool</b></p>
-      <p>Convert PDF into editable Word format quickly and easily.</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.min.js"></script>
+<script>
+function convertPDF() {
+    alert('PDF to Word conversion will require server-side processing. For free client-side demo, you can extract text using PDF.js library.');
+}
+</script>
 
-      <input type="file" id="upload" /><br /><br />
-
-      <button onclick="convert()">Convert</button>
-
-      <br /><br />
-
-      <a id="downloadBtn" style="display: none">
-        <button>Download Word File</button>
-      </a>
-    </div>
-
-    <footer>
-      <p>Secure • Fast • Easy to Use</p>
-    </footer>
-
-    <script src="pdf-to-word.js"></script>
-  </body>
+</body>
 </html>
