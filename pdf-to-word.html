@@ -2,32 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Convert PDF to editable Word online.">
+<meta name="keywords" content="pdf to word, convert pdf, docx converter">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Convert PDF to editable Word documents online for free.">
-<meta name="keywords" content="pdf to word, convert pdf to doc, online pdf converter">
-<title>PDF to Word - ToolHub</title>
+<title>PDF to Word</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h1>PDF to Word Converter</h1>
-    <p>Upload your PDF and convert it into an editable Word document quickly.</p>
-</header>
-
-<div class="container upload-section">
-    <input type="file" id="uploadPDF" accept="application/pdf">
-    <button onclick="convertPDF()">Convert & Download</button>
+<header>PDF → Word Converter</header>
+<div class="upload-section">
+    <input type="file" id="file-input" accept="application/pdf">
+    <button id="convert-btn">Convert PDF</button>
+    <div class="result-box" id="result-box"></div>
 </div>
-
-<a href="index.html" class="btn">Back to Home</a>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.min.js"></script>
-<script>
-function convertPDF() {
-    alert('PDF to Word conversion will require server-side processing. For free client-side demo, you can extract text using PDF.js library.');
-}
-</script>
-
+<script src="js/pdf-to-word.js"></script>
 </body>
 </html>
