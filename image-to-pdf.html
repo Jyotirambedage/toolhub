@@ -1,38 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Image to PDF - ToolHub</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert images to PDF online. Drag & drop multiple images.">
+<meta name="keywords" content="image to pdf, convert images to pdf, online pdf converter">
+<title>Image to PDF - ToolHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  <body>
-    <header>
-      <h1>🖼➡📄 Image to PDF</h1>
-      <p>Convert images into PDF easily</p>
-    </header>
+<header>
+    <h1>Image to PDF</h1>
+    <p>Upload images and convert them into a single PDF file quickly.</p>
+</header>
 
-    <div style="text-align: center">
-      <a href="index.html" class="back-btn">⬅ Back</a>
-    </div>
+<div class="container upload-section">
+    <input type="file" id="uploadImagesPDF" multiple accept="image/*">
+    <button onclick="convertImagesToPDF()">Convert & Download</button>
+</div>
 
-    <div class="container">
-      <input type="file" id="upload" multiple /><br /><br />
+<a href="index.html" class="btn">Back to Home</a>
 
-      <button onclick="convert()">Convert to PDF</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+async function convertImagesToPDF() {
+    const { jsPDF } = window.jspdf;
+    const files = document.getElementById('uploadImagesPDF').files;
+    if(!files.length) { alert('Upload images'); return; }
+    const pdf = new jsPDF();
+    for(let i=0;i<files.length;i++){
+        const img = new Image();
+        img.src = URL.createObjectURL(files[i]);
+        await new Promise(res => { img.onload=res; });
+        const ratio = img.width/img.height;
+        const width = pdf.internal.pageSize.getWidth();
+        const height = width/ratio;
+        if(i!==0) pdf.addPage();
+        pdf.addImage(img,'JPEG',0,0,width,height);
+    }
+    pdf.save('images.pdf');
+}
+</script>
 
-      <br /><br />
-
-      <a id="downloadBtn" style="display: none">
-        <button>Download PDF</button>
-      </a>
-    </div>
-
-    <footer>
-      <p>Fast PDF conversion</p>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="image-to-pdf.js"></script>
-  </body>
+</body>
 </html>
