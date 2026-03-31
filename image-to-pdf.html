@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Image to PDF - ToolHub</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>🖼➡📄 Image to PDF</h1>
+      <p>Convert images into PDF easily</p>
+    </header>
+
+    <div style="text-align: center">
+      <a href="index.html" class="back-btn">⬅ Back</a>
+    </div>
+
+    <div class="container">
+      <input type="file" id="upload" multiple /><br /><br />
+
+      <button onclick="convert()">Convert to PDF</button>
+
+      <br /><br />
+
+      <a id="downloadBtn" style="display: none">
+        <button>Download PDF</button>
+      </a>
+    </div>
+
+    <footer>
+      <p>Fast PDF conversion</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="image-to-pdf.js"></script>
+  </body>
+</html>
